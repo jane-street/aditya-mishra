@@ -13,6 +13,11 @@
   font-family:system-ui, -apple-system, sans-serif;
 }
 
+/* FIX: Changed from height: 100vh to min-height and added scrollable overflow control */
+html {
+  scroll-behavior: smooth;
+}
+
 body{
   min-height:100vh;
   display:flex;
@@ -20,13 +25,13 @@ body{
   align-items:center;
   background:#030306; /* Deep obsidian space black */
   color:#f8fafc;
-  overflow-x:hidden;
+  overflow-y: auto; /* Restores vertical scrolling */
   padding: 80px 20px;
 }
 
 /* Luxury blurred atmospheric backdrop */
 .bg{
-  position:absolute;
+  position:fixed; /* FIXED: Keeps background stationary while scrolling text */
   inset:0;
   background:
     radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.12), transparent 50%),
@@ -419,7 +424,7 @@ canvas {
 
 .footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: 0.72rem;
   letter-spacing: 0.05em;
   color: #334155;
@@ -453,10 +458,3 @@ canvas {
         <span class="stack-tag">LangChain</span>
         <span class="stack-tag">RAG Systems</span>
         <span class="stack-tag">Ollama</span>
-        <span class="stack-tag">Docker & AWS</span>
-        <span class="stack-tag">C++ / DSA</span>
-      </div>
-    </section>
-
-    <!-- Right Column: Interactive Endpoints -->
-    <nav class="connections-pane">

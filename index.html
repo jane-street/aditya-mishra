@@ -346,20 +346,6 @@ h1 {
   max-width: 100%;
 }
 
-/* LinkedIn's raw fallback link, visible only before their widget JS
-   replaces it with the iframe — style it to match the theme instead
-   of the browser's default blue/underlined link. */
-.badge-base__link.LI-simple-link {
-  color: #94a3b8 !important;
-  text-decoration: none !important;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.badge-base__link.LI-simple-link:hover {
-  color: #f1f5f9 !important;
-}
-
 .section-title {
   font-size: 1.4rem;
   font-weight: 700;
@@ -693,13 +679,7 @@ footer a:hover, footer a:focus-visible {
         </div>
         <span class="action-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-
-      <div class="badge-frame">
-        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="jane-street" data-version="v1">
-          <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/jane-street?trk=profile-badge">Aditya M.</a>
-        </div>
-      </div>
-    </div>
+</div>
   </section>
 
   <!-- Credentials Section -->
@@ -831,9 +811,6 @@ footer a:hover, footer a:focus-visible {
   </footer>
 
 </div>
-
-<!-- LinkedIn badge script -->
-<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {

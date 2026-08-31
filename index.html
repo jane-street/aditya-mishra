@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aditya Mishra | AI & Full-Stack Engineer</title>
+<title>Aditya Mishra | AI & Full-Stack Systems Engineer</title>
 
 <style>
 *{
@@ -13,40 +13,73 @@
   font-family:system-ui, -apple-system, sans-serif;
 }
 
-/* FIX: Changed from height: 100vh to min-height and added scrollable overflow control */
 html {
   scroll-behavior: smooth;
 }
 
 body{
   min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#030306; /* Deep obsidian space black */
+  background:#020205; /* Pure luxury deep dark obsidian */
   color:#f8fafc;
-  overflow-y: auto; /* Restores vertical scrolling */
-  padding: 80px 20px;
+  overflow-y: auto;
+  padding: 120px 20px 60px; /* Space for the floating top dock */
 }
 
 /* Luxury blurred atmospheric backdrop */
 .bg{
-  position:fixed; /* FIXED: Keeps background stationary while scrolling text */
+  position:fixed;
   inset:0;
   background:
     radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.12), transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(45, 212, 191, 0.08), transparent 50%);
-  filter:blur(100px);
+    radial-gradient(circle at 90% 80%, rgba(45, 212, 191, 0.07), transparent 50%);
+  filter:blur(120px);
   z-index:-1;
+}
+
+/* Sticky Luxury Navigation Dock Container */
+.nav-dock {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px 24px;
+  border-radius: 100px;
+  display: flex;
+  gap: 20px;
+  z-index: 1000;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.nav-link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.nav-link:hover {
+  color: #fff;
 }
 
 /* Global Hub Layout Architecture */
 .hub-wrapper {
   width: 100%;
   max-width: 1140px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 100px; /* Deep breathing space between sections */
+}
+
+/* Section Wrapper for anchoring links correctly with padding */
+.scroll-section {
+  scroll-margin-top: 120px;
 }
 
 /* Upper Section Blueprint Optimized for Laptops */
@@ -96,7 +129,7 @@ body{
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 800;
   letter-spacing: -0.04em;
   background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 80%);
@@ -106,13 +139,51 @@ h1 {
 }
 
 .headline {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   color: #94a3b8;
 }
 
 .headline strong {
   color: #f1f5f9;
+}
+
+/* Animated Scroll Down Indicator Component */
+.scroll-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.mouse-icon {
+  width: 16px;
+  height: 26px;
+  border: 2px solid #334155;
+  border-radius: 10px;
+  position: relative;
+}
+
+.mouse-wheel {
+  width: 4px;
+  height: 6px;
+  background: #2dd4bf;
+  border-radius: 2px;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 1.6s infinite;
+}
+
+@keyframes scrollWheel {
+  0% { top: 4px; opacity: 1; }
+  100% { top: 14px; opacity: 0; }
 }
 
 /* Core Expertise Matrix Tags */
@@ -197,7 +268,7 @@ h1 {
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #f1f5f9;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -227,7 +298,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 175px;
+  min-height: 185px;
   text-decoration: none;
   color: inherit;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -238,7 +309,6 @@ h1 {
   background: rgba(255, 255, 255, 0.03);
 }
 
-/* Specific Accent Colors on Hover */
 .llvm-bento:hover { border-color: rgba(239, 68, 68, 0.3); }
 .mdu-bento:hover { border-color: rgba(245, 158, 11, 0.3); }
 .msft-bento:hover { border-color: rgba(59, 130, 246, 0.3); }
@@ -317,11 +387,37 @@ canvas {
   margin-bottom: 20px;
 }
 
+/* Dynamic Filter Architecture Controls */
+.filter-dock {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: #6366f1;
+  color: #fff;
+}
+
 /* Project Showcase Architecture */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  transition: all 0.4s ease;
 }
 
 .project-card {
@@ -335,6 +431,11 @@ canvas {
   text-decoration: none;
   color: inherit;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hide animations for filtered cards */
+.project-card.hidden {
+  display: none;
 }
 
 .project-card:hover {
@@ -393,68 +494,3 @@ canvas {
 .email-card:hover { border-color: rgba(45, 212, 191, 0.4); }
 
 .premium-card:hover .action-arrow { transform: translateX(3px); color: #ffffff; }
-.premium-card:hover .icon-wrapper { background: rgba(255, 255, 255, 0.08); }
-.linkedin-card:hover .icon-wrapper { color: #0a66c2; }
-.github-card:hover .icon-wrapper { color: #ffffff; }
-.discord-card:hover .icon-wrapper { color: #5865f2; }
-.email-card:hover .icon-wrapper { color: #2dd4bf; }
-
-/* Responsive adjustments for mobile viewports */
-@media (max-width: 1024px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 992px) {
-  .credentials-grid { grid-template-columns: repeat(2, 1fr); }
-  .analytics-container { grid-template-columns: 1fr; gap: 30px; }
-}
-
-@media (max-width: 868px) {
-  .main-profile-grid { grid-template-columns: 1fr; gap: 48px; }
-  h1 { font-size: 2.8rem; }
-}
-
-@media (max-width: 640px) {
-  .projects-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 560px) {
-  .credentials-grid { grid-template-columns: 1fr; }
-}
-
-.footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
-  color: #334155;
-}
-</style>
-</head>
-
-<body>
-
-<div class="bg"></div>
-
-<div class="hub-wrapper">
-  
-  
-  <div class="main-profile-grid">
-    <section class="profile-pane">
-      <div class="status-badge">
-        <div class="status-dot"></div>
-        Seeking SWE / Full-Stack Internships
-      </div>
-      
-      <h1>Aditya Mishra</h1>
-      
-      <p class="headline">
-        Building high-performance web platforms by bridging the gap between <strong>full-stack software architecture</strong> and <strong>Generative AI</strong>.
-      </p>
-
-      <div class="stack-box">
-        <span class="stack-tag">MERN Stack</span>
-        <span class="stack-tag">Relational Databases (SQL)</span>
-        <span class="stack-tag">LangChain</span>
-        <span class="stack-tag">RAG Systems</span>
-        <span class="stack-tag">Ollama</span>

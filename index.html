@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aditya Mishra | AI & Full-Stack Systems Engineer</title>
+<title>Aditya Mishra | AI & Full-Stack Engineer</title>
+
+<!-- Chart.js for the Radar Skills Visualizer -->
+<script src="https://jsdelivr.net"></script>
 
 <style>
 *{
@@ -19,13 +22,12 @@ html {
 
 body{
   min-height:100vh;
-  background:#020205; /* Pure luxury deep dark obsidian */
+  background:#020205; 
   color:#f8fafc;
   overflow-y: auto;
-  padding: 120px 20px 60px; /* Space for the floating top dock */
+  padding: 120px 20px 60px;
 }
 
-/* Luxury blurred atmospheric backdrop */
 .bg{
   position:fixed;
   inset:0;
@@ -36,7 +38,6 @@ body{
   z-index:-1;
 }
 
-/* Sticky Luxury Navigation Dock Container */
 .nav-dock {
   position: fixed;
   top: 20px;
@@ -67,22 +68,19 @@ body{
   color: #fff;
 }
 
-/* Global Hub Layout Architecture */
 .hub-wrapper {
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 100px; /* Deep breathing space between sections */
+  gap: 100px;
 }
 
-/* Section Wrapper for anchoring links correctly with padding */
 .scroll-section {
   scroll-margin-top: 120px;
 }
 
-/* Upper Section Blueprint Optimized for Laptops */
 .main-profile-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -90,14 +88,18 @@ body{
   align-items: center;
 }
 
-/* Left Pane: Engineering Statement & Identity */
+@media (max-width: 768px) {
+  .main-profile-grid, .analytics-container, .credentials-grid, .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 .profile-pane {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-/* Live Recruitment Badge */
 .status-badge {
   align-self: flex-start;
   display: inline-flex;
@@ -148,7 +150,6 @@ h1 {
   color: #f1f5f9;
 }
 
-/* Animated Scroll Down Indicator Component */
 .scroll-indicator {
   display: flex;
   align-items: center;
@@ -186,7 +187,6 @@ h1 {
   100% { top: 14px; opacity: 0; }
 }
 
-/* Core Expertise Matrix Tags */
 .stack-box {
   display: flex;
   flex-wrap: wrap;
@@ -204,7 +204,6 @@ h1 {
   font-weight: 500;
 }
 
-/* Right Pane: Elite Network Action Links */
 .connections-pane {
   display: flex;
   flex-direction: column;
@@ -224,6 +223,17 @@ h1 {
   text-decoration: none;
   color: inherit;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateX(4px);
+}
+
+.premium-card:hover .action-arrow {
+  color: #fff;
+  transform: translateX(4px);
 }
 
 .card-left {
@@ -262,7 +272,6 @@ h1 {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Section Header Typography */
 .section-title {
   font-size: 1.4rem;
   font-weight: 700;
@@ -281,7 +290,6 @@ h1 {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* Credentials Bento Layout Blueprint */
 .credentials-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -348,7 +356,6 @@ h1 {
   gap: 4px;
 }
 
-/* Interactive Radar Section Styles */
 .analytics-container {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -387,7 +394,6 @@ canvas {
   margin-bottom: 20px;
 }
 
-/* Dynamic Filter Architecture Controls */
 .filter-dock {
   display: flex;
   gap: 10px;
@@ -412,7 +418,6 @@ canvas {
   color: #fff;
 }
 
-/* Project Showcase Architecture */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -433,9 +438,8 @@ canvas {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hide animations for filtered cards */
 .project-card.hidden {
-  display: none;
+  display: none !important;
 }
 
 .project-card:hover {
@@ -457,40 +461,47 @@ canvas {
 }
 
 .project-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: #f8fafc;
-  letter-spacing: -0.02em;
+  color: #f1f5f9;
 }
 
 .project-desc {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
   color: #94a3b8;
+  line-height: 1.5;
 }
+</style>
+</head>
+<body>
 
-.project-tech-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
-}
+<div class="bg"></div>
 
-.project-pill {
-  font-size: 0.72rem;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 4px 10px;
-  border-radius: 6px;
-  color: #cbd5e1;
-}
+<!-- Docked Navigation -->
+<nav class="nav-dock">
+  <a href="#profile" class="nav-link">Home</a>
+  <a href="#credentials" class="nav-link">Credentials</a>
+  <a href="#analytics" class="nav-link">Skills</a>
+  <a href="#projects" class="nav-link">Projects</a>
+</nav>
 
-/* Hover Interactive Mechanics for Profile Cards */
-.premium-card:hover { transform: translateX(6px); background: rgba(255, 255, 255, 0.03); }
-.linkedin-card:hover { border-color: rgba(10, 102, 194, 0.4); }
-.github-card:hover { border-color: rgba(255, 255, 255, 0.2); }
-.discord-card:hover { border-color: rgba(88, 101, 242, 0.4); }
-.email-card:hover { border-color: rgba(45, 212, 191, 0.4); }
+<div class="hub-wrapper">
 
-.premium-card:hover .action-arrow { transform: translateX(3px); color: #ffffff; }
+  <!-- Profile Section -->
+  <section id="profile" class="scroll-section main-profile-grid">
+    <div class="profile-pane">
+      <div class="status-badge">
+        <div class="status-dot"></div> Available for Projects
+      </div>
+      <h1>Aditya Mishra</h1>
+      <p class="headline"><strong>AI & Full-Stack Engineer</strong> creating scalable machine learning models and high-performance web architectures.</p>
+      
+      <div class="stack-box">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">TypeScript</span>
+        <span class="stack-tag">PyTorch</span>
+        <span class="stack-tag">Next.js</span>
+        <span class="stack-tag">Docker</span>
+      </div>
+
+      <div class="scroll-indicator">

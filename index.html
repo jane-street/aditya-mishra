@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coming Soon</title>
+<title>Aditya Mishra | Profile</title>
 
 <style>
 *{
@@ -18,64 +18,74 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:#0a0a0f;
+  background:#050508; /* Deeper dark background for higher contrast */
   color:white;
   overflow:hidden;
 }
 
-/* glowing background */
+/* Enhanced luxury glowing background */
 .bg{
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(127,140,255,0.25), transparent 40%),
-    radial-gradient(circle at 80% 20%, rgba(181,140,255,0.2), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(127,255,212,0.15), transparent 50%);
-  filter:blur(60px);
+    radial-gradient(circle at 15% 25%, rgba(99, 102, 241, 0.25), transparent 45%),   /* Indigo */
+    radial-gradient(circle at 85% 25%, rgba(168, 85, 247, 0.2), transparent 45%),    /* Purple */
+    radial-gradient(circle at 50% 75%, rgba(45, 212, 191, 0.15), transparent 50%);   /* Premium Mint */
+  filter:blur(80px);
   z-index:-1;
 }
 
+/* Premium Card container */
 .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align:center;
-  backdrop-filter:blur(10px);
-  padding:40px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  padding: 40px 50px;
+  border-radius:24px;
+  background:rgba(255, 255, 255, 0.03);
+  border:1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  max-width: 450px;
+  width: 90%;
 }
 
+/* High-end corporate gradient typography */
 h1{
-  font-size:3.5rem;
-  background:linear-gradient(90deg,#7f8cff,#b58cff,#7fffd4);
+  font-size:2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 70%, #2dd4bf 100%);
   -webkit-background-clip:text;
   color:transparent;
+  margin-bottom: 8px;
 }
 
 p{
-  margin-top:15px;
-  color:#aaa;
+  font-size: 1.05rem;
+  color:#94a3b8; /* Premium slate color */
+  margin-bottom: 30px;
+  letter-spacing: 0.01em;
 }
 
-/* loader */
-.loader{
-  margin:30px auto 0;
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  border:3px solid rgba(255,255,255,0.1);
-  border-top:3px solid #7f8cff;
-  animation:spin 1s linear infinite;
+/* Wrapper to lock LinkedIn badge layout structure and prevent jumping */
+.badge-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px; /* Reserves space to perfectly frame the large badge */
 }
 
-@keyframes spin{
-  to{ transform:rotate(360deg); }
-}
-
-/* subtle animation */
+/* Subtle cinematic entrance animation */
 .fade{
   opacity:0;
-  transform:translateY(20px);
-  animation:fadeUp 1.2s ease forwards;
+  transform:translateY(15px);
+  animation:fadeUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeUp{
@@ -87,9 +97,10 @@ p{
 
 .footer{
   position:absolute;
-  bottom:20px;
-  font-size:0.8rem;
-  color:#777;
+  bottom:24px;
+  font-size:0.75rem;
+  letter-spacing: 0.05em;
+  color:#475569;
 }
 
 </style>
@@ -100,14 +111,25 @@ p{
 <div class="bg"></div>
 
 <div class="container fade">
-  <h1>Coming Soon</h1>
-  <p>Something premium is on the way ⚡</p>
-  <div class="loader"></div>
+  <h1>Aditya Mishra</h1>
+  <p>Connect with me on professional networks</p>
+  
+  <!-- Perfectly aligned LinkedIn Badge Wrapper -->
+  <div class="badge-wrapper">
+    <div class="badge-base LI-profile-badge" 
+         data-locale="en_US" 
+         data-size="large" 
+         data-theme="dark" 
+         data-type="HORIZONTAL" 
+         data-vanity="jane-street" 
+         data-version="v1">
+      <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/jane-street?trk=profile-badge">Aditya M.</a>
+    </div>
+  </div>
 </div>
 
-<div class="footer">© 2026 Aditya Mishra</div>
+<div class="footer">© 2026 Aditya Mishra • All Rights Reserved</div>
+
 <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-  <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="jane-street" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/jane-street?trk=profile-badge">Aditya M.</a></div>
-              
 </body>
 </html>

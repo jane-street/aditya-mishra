@@ -341,48 +341,80 @@ body {
   }
 }
 
-/* --- NEW PROFESSIONAL CONTACT GRID --- */
-.contact-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  margin-top: 25px;
+/* --- UNBREAKABLE CLEAN FOOTER --- */
+.footer-clean-section {
+  width: 100%;
+  padding: 80px 0;
+  background-color: #FBF8CC;
 }
 
-.contact-item {
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column; /* Stacks vertically so it cannot stretch wide */
+  gap: 20px;
+}
+
+.footer-bg-title {
+  color: #F7F197;
+  font-size: 100px;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+}
+
+.footer-body {
+  max-width: 800px;
+}
+
+.footer-lead-text {
+  font-size: 24px;
+  line-height: 40px;
+  color: #03045E;
+  margin-bottom: 40px;
+}
+
+/* Social Grid Links */
+.pro-contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pro-contact-item {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   color: #03045E;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
   width: max-content;
-  padding: 6px 0;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Icon Sizing and Color Base */
-.contact-item i {
-  font-size: 26px;
-  width: 32px;
-  text-align: center;
+.pro-contact-item i {
+  font-size: 28px;
+  width: 35px;
   color: #03045E;
+  text-align: center;
 }
 
-/* Interactive Hover Animations */
-.contact-item:hover {
+/* Hover States */
+.pro-contact-item:hover {
   color: #535bf2;
-  transform: translateX(6px);
+  transform: translateX(8px);
 }
 
-.contact-item:hover i {
+.pro-contact-item:hover i {
   color: #535bf2;
 }
 
-/* Highlight style specifically for your main email address */
-.email-accent {
-  border-bottom: 2px dashed rgba(3, 4, 94, 0.3);
-  padding-bottom: 8px;
+.email-line {
+  font-weight: 600;
+  border-bottom: 2px solid rgba(3, 4, 94, 0.15);
+  padding-bottom: 4px;
   margin-bottom: 10px;
 }

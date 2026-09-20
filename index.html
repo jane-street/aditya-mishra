@@ -5,37 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya | Portfolio</title>
     <style>
-        /* ==========================================
-           PASTE YOUR COPIED FIGMA CSS CODE BELOW HERE 
-           ========================================== */
-
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya | Portfolio</title>
-    <style>
-        /* ==========================================
-           PASTE YOUR COPIED FIGMA CSS CODE BELOW HERE 
-           ========================================== */
-
-        
-        /* ========================================== */
-
         /* Global Reset to keep things layout-friendly */
         * {
             box-sizing: border-box;
         }
+        
         body {
             margin: 0;
-            padding: 0;
+            padding: 20px;
             font-family: 'Poppins', sans-serif;
+            background-color: #101010; /* Sleek dark background matching your original vibe */
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            text-align: left;
+        }
+
+        main {
+            max-width: 650px;
+            width: 100%;
         }
         
         /* Your original pink-to-blue text gradient style */
@@ -47,16 +38,17 @@
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 54px;
             line-height: 1.2;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         p {
             color: #a3a3a3;
             font-size: 18px;
-            max-width: 600px;
-            margin-bottom: 30px;
+            line-height: 1.6;
+            margin-bottom: 35px;
         }
 
         .btn-container {
@@ -67,90 +59,28 @@
         .btn-primary {
             background-color: #ffffff;
             color: #101010;
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #e2e8f0;
         }
     </style>
 </head>
 <body>
 
     <main>
-        <!-- Your Text Elements -->
+        <!-- Clean, crisp typography structures -->
         <h1>Hello, <span class="gradient-text">I'm Aditya.</span><br>Front-End Designer<br>in Delhi.</h1>
         <p>I bridge the gap between design and code, usually while fueled by caffeine at a hackathon.</p>
         
         <div class="btn-container">
-            <a href="#" class="btn-primary">Get in Touch</a>
-        </div>
-    </main>
-
-</body>
-</html>
-
-        /* ========================================== */
-
-        /* Global Reset to keep things layout-friendly */
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
-        /* Your original pink-to-blue text gradient style */
-        .gradient-text {
-            background: linear-gradient(90deg, #E053A4 0%, #4F46E5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-        }
-
-        h1 {
-            font-size: 48px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        p {
-            color: #a3a3a3;
-            font-size: 18px;
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        .btn-container {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-primary {
-            background-color: #ffffff;
-            color: #101010;
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-
-    <main>
-        <!-- Your Text Elements -->
-        <h1>Hello, <span class="gradient-text">I'm Aditya.</span><br>Front-End Designer<br>in Delhi.</h1>
-        <p>I bridge the gap between design and code, usually while fueled by caffeine at a hackathon.</p>
-        
-        <div class="btn-container">
-            <a href="#" class="btn-primary">Get in Touch</a>
+            <a href="mailto:your-email@example.com" class="btn-primary">Get in Touch</a>
         </div>
     </main>
 

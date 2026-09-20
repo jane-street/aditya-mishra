@@ -5,31 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya | Portfolio</title>
     <style>
-        /* Global Reset to keep things layout-friendly */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Poppins', sans-serif;
-            background-color: #101010; /* Sleek dark background matching your original vibe */
+            background-color: #101010;
             color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: left;
         }
 
-        main {
-            max-width: 650px;
+        /* Top Header Bar Layout */
+        header {
             width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        /* Your original pink-to-blue text gradient style */
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #a3a3a3;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        .btn-talk {
+            background-color: #ffffff;
+            color: #101010;
+            padding: 10px 24px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Two-Column Screen split structure */
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-left {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Pink-to-blue name gradient text */
         .gradient-text {
             background: linear-gradient(90deg, #E053A4 0%, #4F46E5 100%);
             -webkit-background-clip: text;
@@ -38,22 +95,24 @@
         }
 
         h1 {
-            font-size: 54px;
+            font-size: 56px;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             font-weight: 700;
         }
 
         p {
             color: #a3a3a3;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.6;
             margin-bottom: 35px;
         }
 
+        /* Buttons matching the Figma weights */
         .btn-container {
             display: flex;
             gap: 15px;
+            align-items: center;
         }
 
         .btn-primary {
@@ -63,26 +122,80 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 16px;
-            transition: background-color 0.2s ease;
+            font-size: 15px;
         }
 
-        .btn-primary:hover {
-            background-color: #e2e8f0;
+        .btn-secondary {
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        /* Photo block styling */
+        .photo-card {
+            width: 400px;
+            height: 450px;
+            background-color: #252525;
+            border-radius: 24px;
+            background-image: url('https://unsplash.com'); /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Responsive Layout adjustment for tablets/phones */
+        @media (max-width: 900px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-right {
+                justify-content: center;
+            }
+            .photo-card {
+                width: 300px;
+                height: 350px;
+            }
+            .btn-container {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <main>
-        <!-- Clean, crisp typography structures -->
-        <h1>Hello, <span class="gradient-text">I'm Aditya.</span><br>Front-End Designer<br>in Delhi.</h1>
-        <p>I bridge the gap between design and code, usually while fueled by caffeine at a hackathon. Always looking for the next sprint, the next challenge, and the next team to build something memorable with.</p>
-        
-        <div class="btn-container">
-            <a href="mailto:your-email@example.com" class="btn-primary">Get in Touch</a>
+    <!-- Header bar components matching Figma layout -->
+    <header>
+        <div class="logo">Logo</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <a href="#">About</a>
+            <a href="#">Blogs</a>
+        </nav>
+        <a href="#" class="btn-talk">Lets Talk</a>
+    </header>
+
+    <!-- Content columns matching Figma split grid layout -->
+    <div class="hero-container">
+        <div class="hero-left">
+            <h1>Hello, <span class="gradient-text">I'm Aditya.</span><br>Front-End Designer<br>in Delhi.</h1>
+            <p>I bridge the gap between design and code, usually while fueled by caffeine at a hackathon. Always looking for the next sprint, the next challenge, and the next team to build something memorable with.</p>
+            
+            <div class="btn-container">
+                <a href="#" class="btn-primary">Get in Touch</a>
+                <a href="#" class="btn-secondary">View All Works</a>
+            </div>
         </div>
-    </main>
+        
+        <div class="hero-right">
+            <div class="photo-card"></div>
+        </div>
+    </div>
 
 </body>
 </html>

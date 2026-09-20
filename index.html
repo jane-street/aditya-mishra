@@ -4,18 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <!-- Links the clean Inter & Poppins fonts used in your Figma design -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: #101010;
+            /* Flexbox centers the entire design canvas horizontally on any monitor */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            max-width: 1440px; /* Matches your Figma design board width */
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
+
+    <div class="canvas-container">
+    
+        <!-- 👇 PASTE YOUR FIGMA CODE DIRECTLY UNDER THIS LINE 👇 -->
 <div style="width: 1440px; height: 984px; position: relative; background: #101010; overflow: hidden">
   <div style="width: 1440px; padding-top: 24px; padding-bottom: 24px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; gap: 543px; display: inline-flex">
     <div style="justify-content: center; align-items: center; gap: 100px; display: flex">
@@ -120,10 +135,10 @@
     </div>
   </div>
 </div>
-    <!-- 👇 PASTE YOUR FIGMA CODE DIRECTLY UNDER THIS LINE 👇 -->
 
+        <!-- 👆 PASTE YOUR FIGMA CODE DIRECTLY ABOVE THIS LINE 👆 -->
 
-    <!-- 👆 PASTE YOUR FIGMA CODE DIRECTLY ABOVE THIS LINE 👆 -->
+    </div>
 
 </body>
 </html>

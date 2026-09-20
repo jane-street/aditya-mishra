@@ -63,7 +63,7 @@ body {
 }
 
 /* -------------------------------------------
-   3. HERO HERO CONTENT
+   3. HERO CONTENT
 ------------------------------------------- */
 .hero-container {
   display: flex;
@@ -125,28 +125,25 @@ body {
   align-items: center;
 }
 
-/* This creates the thin outer circular ring seen in Figma */
 .image-wrapper {
   position: relative;
   width: 440px;
   height: 440px;
   border-radius: 50%;
-  border: 1.5px solid #03045E; /* The dark blue accent ring */
+  border: 1.5px solid #03045E;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px; /* Spacing between outer ring and your photo */
+  padding: 15px;
 }
 
-/* This forces your photo to crop into a perfect circle inside the ring */
 .image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%; /* Makes the cat photo circular */
+  border-radius: 50%;
 }
 
-/* Optional: Add the slashes (////) to the bottom left if you want them */
 .image-wrapper::before {
   content: "////";
   position: absolute;
@@ -160,7 +157,6 @@ body {
   transform: rotate(-15deg);
 }
 
-
 /* -------------------------------------------
    4. COMMON SECTION STRUCTURES (ABOUT, WORK, CONTACT)
 ------------------------------------------- */
@@ -173,14 +169,13 @@ body {
 }
 
 .section-header {
-  flex: 0 0 300px; /* Rigid label space to copy Figma's offset structure */
+  flex: 0 0 300px;
 }
 
 .section-content {
   flex: 1;
 }
 
-/* Yellow giant structural background text elements */
 .bg-title {
   color: #F7F197;
   font-size: 100px;
@@ -188,7 +183,6 @@ body {
   line-height: 1;
 }
 
-/* Base Body paragraphs */
 .lead-text {
   font-size: 24px;
   font-weight: 400;
@@ -275,35 +269,46 @@ body {
 }
 
 /* -------------------------------------------
-   7. FOOTER & CONTACT STYLING
+   7. CLEAN MODERN CONTACT STYLING (Replaces old Footer rules)
 ------------------------------------------- */
-.footer-content {
+.contact-flex-wrapper {
   display: flex;
   gap: 50px;
+  align-items: flex-start;
 }
 
-.footer-left {
+.contact-left {
   flex: 0 0 440px;
 }
 
-.footer-img {
+.contact-profile-img {
   width: 100%;
   height: auto;
+  object-fit: cover;
   border: 1px solid #03045E;
 }
 
-.footer-right {
+.contact-right {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.contact-links {
+.contact-lead {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 44px;
+  color: #03045E;
+}
+
+.contact-links-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 30px;
 }
 
-.contact-links a {
+.contact-link, .contact-info-text {
   font-size: 24px;
   color: #03045E;
   text-decoration: none;
@@ -312,7 +317,7 @@ body {
   width: max-content;
 }
 
-.contact-links a:hover {
+.contact-link:hover {
   text-decoration: underline;
 }
 
@@ -320,24 +325,37 @@ body {
    8. RESPONSIVE BREAKPOINT FOR TABLETS/MOBILES
 ------------------------------------------- */
 @media (max-width: 992px) {
-  .hero-container, .section-layout, .timeline-item, .footer-content {
+  .hero-container, 
+  .section-layout, 
+  .timeline-item, 
+  .contact-flex-wrapper {
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
   }
+  
   .case-studies-grid {
     grid-template-columns: 1fr;
   }
-  .section-header, .time-period, .footer-left {
+  
+  .section-header, 
+  .time-period, 
+  .contact-left {
     flex: none;
     width: 100%;
   }
-  .hero-right, .image-wrapper {
+  
+  .hero-right, 
+  .image-wrapper {
     width: 100%;
     max-width: 493px;
   }
+  
   .main-title {
     font-size: 60px;
   }
-}
 
+  .contact-right {
+    width: 100%;
+  }
+}

@@ -3,141 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Aditya | Portfolio</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        body {
+        html, body {
             margin: 0;
             padding: 0;
             background-color: #101010;
-            /* Flexbox centers the entire design canvas horizontally on any monitor */
+            width: 100%;
+            overflow-x: hidden; /* Prevents ugly horizontal scrolling */
+        }
+
+        /* This wrapper automatically shrinks the 1440px Figma layout to fit smaller screens */
+        .page-scaler {
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            width: 100%;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         .canvas-container {
             position: relative;
-            width: 100%;
-            max-width: 1440px; /* Matches your Figma design board width */
-            margin: 0 auto;
+            width: 1440px; 
+            height: 984px;
+            flex-shrink: 0;
+            transform-origin: top center;
+        }
+
+        /* Screen sizing magic rules */
+        @media (max-width: 1440px) {
+            .canvas-container {
+                transform: scale(calc(window.innerWidth / 1440));
+            }
+        }
+        
+        @container (max-width: 1440px) {
+            .canvas-container {
+                transform: scale(0.9); /* Safe fallback scale for small laptops */
+            }
         }
     </style>
+    
+    <script>
+        // Dynamically adjusts the zoom scale to fit your exact screen width live
+        function adjustScale() {
+            const container = document.querySelector('.canvas-container');
+            if (!container) return;
+            const width = window.innerWidth;
+            if (width < 1440) {
+                const scaleValue = width / 1440;
+                container.style.transform = `scale(${scaleValue})`;
+                container.style.marginBottom = `-${100 - (scaleValue * 100)}%`;
+            } else {
+                container.style.transform = 'none';
+                container.style.marginBottom = '0';
+            }
+        }
+        window.addEventListener('resize', adjustScale);
+        window.addEventListener('DOMContentLoaded', adjustScale);
+    </script>
 </head>
 <body>
 
-    <div class="canvas-container">
-    
-        <!-- 👇 PASTE YOUR FIGMA CODE DIRECTLY UNDER THIS LINE 👇 -->
-<div style="width: 1440px; height: 984px; position: relative; background: #101010; overflow: hidden">
-  <div style="width: 1440px; padding-top: 24px; padding-bottom: 24px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; gap: 543px; display: inline-flex">
-    <div style="justify-content: center; align-items: center; gap: 100px; display: flex">
-      <div style="color: white; font-size: 24px; font-family: Poppins; font-weight: 500; letter-spacing: 9.60px; word-wrap: break-word">Logo</div>
-      <div style="justify-content: flex-start; align-items: flex-start; gap: 20px; display: flex">
-        <div style="color: white; font-size: 16px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Home</div>
-        <div style="opacity: 0.60; color: white; font-size: 16px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Services</div>
-        <div style="opacity: 0.60; color: white; font-size: 16px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Projects</div>
-        <div style="opacity: 0.60; color: white; font-size: 16px; font-family: Poppins; font-weight: 400; word-wrap: break-word">About</div>
-        <div style="opacity: 0.60; color: white; font-size: 16px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Blogs</div>
+    <div class="page-scaler">
+        <div class="canvas-container">
+        
+            <!-- 👇 PASTE YOUR FIGMA CODE DIRECTLY UNDER THIS LINE 👇 -->
+
+<div style="width: 1728px; height: 5198px; position: relative; background: white; overflow: hidden">
+  <div style="left: 371px; top: 32px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 32px; display: inline-flex">
+    <div style="color: #1B1A19; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Home</div>
+    <div style="color: #1B1A19; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Work</div>
+    <div style="color: #1B1A19; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Testimonials</div>
+    <div style="color: #1B1A19; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">About</div>
+  </div>
+  <div style="width: 235px; left: 120px; top: 26px; position: absolute; justify-content: center; display: flex; flex-direction: column; color: #1B1A19; font-size: 28px; font-family: Work Sans; font-weight: 800; text-transform: uppercase; line-height: 42px; word-wrap: break-word">UIUX Designer</div>
+  <div style="left: 1408px; top: 32px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 9.92px; height: 7.73px; background: #4D5566"></div>
+    <div style="width: 12.19px; height: 9px; background: #4D5566"></div>
+    <div style="width: 9.81px; height: 6.59px; background: #4D5566"></div>
+    <div style="width: 11.57px; height: 9.15px; background: #4D5566"></div>
+    <div style="width: 7.60px; height: 8.30px; background: #4D5566"></div>
+    <div style="width: 9.73px; height: 7.63px; background: #4D5566"></div>
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 7.52px; height: 7.52px; background: #4D5566"></div>
+    <div style="width: 26.67px; height: 26.67px; background: #4D5566"></div>
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 26.67px; height: 26.67px; background: #4D5566"></div>
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 26.67px; height: 26.67px; background: #4D5566"></div>
+  </div>
+  <div style="width: 1728.07px; height: 0px; left: 0px; top: 96px; position: absolute; outline: 1px rgba(0, 0, 0, 0.16) solid; outline-offset: -0.50px"></div>
+  <div style="width: 742px; height: 424px; left: 122px; top: 186px; position: absolute">
+    <div style="width: 742px; left: 0px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+      <div style="padding-left: 24px; padding-right: 24px; padding-top: 12px; padding-bottom: 12px; background: #090909; border-radius: 10px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+        <div style="color: white; font-size: 24px; font-family: Work Sans; font-weight: 600; line-height: 36px; word-wrap: break-word">👋 Hello All</div>
       </div>
+      <div style="color: #151413; font-size: 64px; font-family: Eczar; font-weight: 600; line-height: 80px; letter-spacing: 1.28px; word-wrap: break-word">I’m Chiranjit H,<br/>A UI/UX Designer<br/>and Developer</div>
     </div>
-    <div style="padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 50px; justify-content: center; align-items: center; gap: 10px; display: flex">
-      <div style="color: black; font-size: 16px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Lets Talk</div>
+    <div style="left: 0px; top: 364px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+      <div style="width: 224px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; background: black; border-radius: 5px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+        <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+          <div style="color: #F3F2FF; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">View My Work</div>
+          <div style="width: 24px; height: 24px; position: relative"></div>
+        </div>
+      </div>
+      <div style="width: 224px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; border-radius: 5px; outline: 4px black solid; outline-offset: -4px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+        <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+          <div style="color: #4D5566; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Contact Me</div>
+        </div>
+      </div>
     </div>
   </div>
-  <div style="width: 1180px; left: 130px; top: 155px; position: absolute; justify-content: center; align-items: flex-end; gap: 100px; display: inline-flex">
-    <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 32px; display: inline-flex">
-      <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: flex">
-        <div style="width: 569px"><span style="color: white; font-size: 58px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Hello, </span><span style="color: #C52323; font-size: 58px; font-family: Poppins; font-weight: 500; word-wrap: break-word">I’m Aditya.</span><span style="color: white; font-size: 58px; font-family: Poppins; font-weight: 500; word-wrap: break-word"> Front-End</span><span style="color: white; font-size: 58px; font-family: Poppins; font-weight: 600; word-wrap: break-word"> Designer</span><span style="color: white; font-size: 58px; font-family: Poppins; font-weight: 500; word-wrap: break-word"> in Delhi.</span></div>
-        <div style="width: 605px; height: 96px; color: rgba(255, 255, 255, 0.60); font-size: 18px; font-family: Poppins; font-weight: 400; word-wrap: break-word">I bridge the gap between design and code, usually while fueled by caffeine at a hackathon. Always looking for the next sprint, the next challenge, and the next team to build something memorable with.</div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-        <div style="padding-left: 18px; padding-right: 18px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 47px; justify-content: center; align-items: center; gap: 10px; display: flex">
-          <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 400; word-wrap: break-word">Get in Touch</div>
-        </div>
-        <div style="padding-left: 18px; padding-right: 18px; padding-top: 12px; padding-bottom: 12px; border-radius: 47px; outline: 1px white solid; outline-offset: -1px; justify-content: center; align-items: center; gap: 10px; display: flex">
-          <div style="color: white; font-size: 18px; font-family: Poppins; font-weight: 400; word-wrap: break-word">View All Works</div>
-        </div>
-      </div>
-    </div>
-    <img style="width: 480px; height: 522px; background: #D9D9D9; background-blend-mode: linear_burn, normal; border-radius: 24px" src="https://placehold.co/480x522" />
+  <img style="width: 733px; height: 541px; left: 875px; top: 141px; position: absolute; background: #C4C4C4; border-radius: 30px" src="https://placehold.co/733x541" />
+  <div style="width: 1728px; height: 1699px; left: 0px; top: 806px; position: absolute; background: rgba(0, 0, 0, 0.93)"></div>
+  <div style="width: 1728px; height: 731px; left: 0px; top: 3267px; position: absolute; background: black"></div>
+  <div style="padding: 8px; left: 122px; top: 868px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+    <div style="color: #FFFEFC; font-size: 40px; font-family: Eczar; font-weight: 600; line-height: 50px; letter-spacing: 0.80px; word-wrap: break-word">Featured Work</div>
   </div>
-  <div style="padding-top: 23px; padding-bottom: 23px; left: -118.05px; top: 755.43px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
-    <div style="padding-left: 18px; padding-right: 18px; padding-top: 30px; padding-bottom: 30px; transform: rotate(1deg); transform-origin: top left; background: white; justify-content: center; align-items: center; gap: 23px; display: inline-flex">
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Graphic Designer</div>
-        <div style="width: 20.76px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Front-End Designer</div>
-        <div style="width: 20.76px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Front-End Designer</div>
-        <div style="width: 20.76px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Graphic Designer</div>
-        <div style="width: 20.76px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Graphic Designer</div>
-        <div style="width: 20.76px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Graphic Designer</div>
-        <div style="width: 20.76px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Graphic Designer</div>
-        <div style="width: 20.76px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Graphic Designer</div>
-        <div style="width: 20.76px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
+  <div style="width: 1485px; height: 414px; left: 120px; top: 991px; position: absolute; background: white; border-radius: 30px"></div>
+  <div style="width: 607px; height: 318px; left: 234px; top: 1039px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+    <div style="width: 623px; height: 258px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: flex">
+      <div style="color: black; font-size: 32px; font-family: Work Sans; font-weight: 600; line-height: 48px; word-wrap: break-word">Sheepify States</div>
+      <div style="width: 623px; height: 248px; color: #594F43; font-size: 24px; font-family: Work Sans; font-weight: 500; line-height: 36px; word-wrap: break-word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa amet etiam quis semper sit lacus blandit. Diam nam mi tortor feugiat nunc. Amet enim nisi ac imperdiet nisl, feugiat faucibus amet mi. Volutpat sollicitudin euismod facilisis morbi ullamcorper velit, elementum.</div>
     </div>
-    <div style="padding-left: 18px; padding-right: 18px; padding-top: 30px; padding-bottom: 30px; left: 0px; top: 113.72px; position: absolute; transform: rotate(-4deg); transform-origin: top left; background: white; justify-content: center; align-items: center; gap: 23px; display: inline-flex">
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Graphic Designer</div>
-        <div style="width: 20.70px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Front-End Designer</div>
-        <div style="width: 20.70px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Front-End Designer</div>
-        <div style="width: 20.70px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Front-End Designer</div>
-        <div style="width: 20.70px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Front-End Designer</div>
-        <div style="width: 20.70px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Front-End Designer</div>
-        <div style="width: 20.70px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Front-End Designer</div>
-        <div style="width: 20.70px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
-      <div style="justify-content: flex-start; align-items: flex-end; gap: 5px; display: flex">
-        <div style="color: black; font-size: 18px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Graphic Designer</div>
-        <div style="width: 20.70px; height: 16px; transform: rotate(45deg); transform-origin: top left; background: linear-gradient(167deg, #FF0000 0%, #9D02FC 100%); border-radius: 3px"></div>
-      </div>
+    <div style="color: black; font-size: 24px; font-family: Work Sans; font-weight: 600; line-height: 36px; word-wrap: break-word">Live View</div>
+  </div>
+  <img style="width: 624px; height: 414px; left: 981px; top: 991px; position: absolute; background: #C4C4C4; border-top-right-radius: 30px; border-bottom-right-radius: 30px" src="https://placehold.co/624x414" />
+  <div style="width: 1485px; height: 414px; left: 120px; top: 1462px; position: absolute; background: white; border-radius: 30px"></div>
+  <div style="width: 607px; height: 251px; left: 234px; top: 1543px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+    <div style="width: 623px; height: 186px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: flex">
+      <div style="color: black; font-size: 32px; font-family: Work Sans; font-weight: 600; line-height: 48px; word-wrap: break-word">Interior Design</div>
+      <div style="width: 623px; height: 248px; color: #594F43; font-size: 24px; font-family: Work Sans; font-weight: 500; line-height: 36px; word-wrap: break-word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa amet etiam quis semper sit lacus blandit. Diam nam mi tortor feugiat nunc. Amet enim nisi ac imperdiet nisl.</div>
     </div>
+    <div style="color: black; font-size: 24px; font-family: Work Sans; font-weight: 600; line-height: 36px; word-wrap: break-word">Live View</div>
+  </div>
+  <img style="width: 624px; height: 414px; left: 981px; top: 1462px; position: absolute; background: #C4C4C4; border-top-right-radius: 30px; border-bottom-right-radius: 30px" src="https://placehold.co/624x414" />
+  <div style="width: 1485px; height: 414px; left: 114px; top: 1933px; position: absolute; background: white; border-radius: 30px"></div>
+  <div style="width: 607px; height: 210px; left: 234px; top: 2035px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+    <div style="width: 623px; height: 150px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: flex">
+      <div style="color: black; font-size: 32px; font-family: Work Sans; font-weight: 600; line-height: 48px; word-wrap: break-word">IOS UI/UX Design</div>
+      <div style="width: 623px; height: 248px; color: #594F43; font-size: 24px; font-family: Work Sans; font-weight: 500; line-height: 36px; word-wrap: break-word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa amet etiam quis semper sit lacus blandit. Diam nam mi torto</div>
+    </div>
+    <div style="color: black; font-size: 24px; font-family: Work Sans; font-weight: 600; line-height: 36px; word-wrap: break-word">Live View</div>
+  </div>
+  <img style="width: 624px; height: 414px; left: 975px; top: 1933px; position: absolute; background: #C4C4C4; border-top-right-radius: 30px; border-bottom-right-radius: 30px" src="https://placehold.co/624x414" />
+  <div style="width: 302px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; left: 482px; top: 871px; position: absolute; border-radius: 5px; outline: 4px white solid; outline-offset: -4px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+    <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+      <div style="color: white; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">View more on Behance </div>
+    </div>
+  </div>
+  <div style="left: 449px; top: 2623px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
+    <div style="color: #020202; font-size: 40px; font-family: Eczar; font-weight: 600; line-height: 50px; letter-spacing: 0.80px; word-wrap: break-word">Some Generous Words</div>
+    <div style="width: 784px; text-align: center; color: #594F43; font-size: 20px; font-family: Work Sans; font-weight: 500; line-height: 30px; word-wrap: break-word">Some of my favorite testimonials from my clients</div>
+  </div>
+  <div style="width: 662px; height: 369px; left: 167px; top: 2777px; position: absolute; border-radius: 30px"></div>
+  <div style="left: 396px; top: 3050px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 9.92px; height: 7.73px; background: black"></div>
+    <div style="width: 12.19px; height: 9px; background: black"></div>
+    <div style="width: 9.81px; height: 6.59px; background: black"></div>
+    <div style="width: 11.57px; height: 9.15px; background: black"></div>
+    <div style="width: 7.60px; height: 8.30px; background: black"></div>
+    <div style="width: 9.73px; height: 7.63px; background: black"></div>
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 7.52px; height: 7.52px; background: black"></div>
+    <div style="width: 26.67px; height: 26.67px; background: black"></div>
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 26.67px; height: 26.67px; background: black"></div>
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 26.67px; height: 26.67px; background: black"></div>
+  </div>
+  <div style="width: 539px; left: 229px; top: 2841px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Work Sans; font-weight: 400; line-height: 30px; word-wrap: break-word">I had grown a little bit disappointed when I realized that my work would not be taking me in any new, creative design directions. Thankfully, I found Salman Khan and his creativity that goes above and beyond, proving to be exactly what I needed to take.</div>
+  <div style="width: 351px; left: 321px; top: 3008px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Work Sans; font-weight: 700; line-height: 25px; word-wrap: break-word">Aika Chan</div>
+  <div style="width: 662px; height: 369px; left: 898px; top: 2777px; position: absolute; border-radius: 30px"></div>
+  <div style="left: 1127px; top: 3050px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 9.92px; height: 7.73px; background: black"></div>
+    <div style="width: 12.19px; height: 9px; background: black"></div>
+    <div style="width: 9.81px; height: 6.59px; background: black"></div>
+    <div style="width: 11.57px; height: 9.15px; background: black"></div>
+    <div style="width: 7.60px; height: 8.30px; background: black"></div>
+    <div style="width: 9.73px; height: 7.63px; background: black"></div>
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 7.52px; height: 7.52px; background: black"></div>
+    <div style="width: 26.67px; height: 26.67px; background: black"></div>
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 26.67px; height: 26.67px; background: black"></div>
+    <div style="width: 32px; height: 32px"></div>
+    <div style="width: 26.67px; height: 26.67px; background: black"></div>
+  </div>
+  <div style="width: 539px; left: 960px; top: 2841px; position: absolute; text-align: center; color: #030303; font-size: 20px; font-family: Work Sans; font-weight: 400; line-height: 30px; word-wrap: break-word">I had grown a little bit disappointed when I realized that my work would not be taking me in any new, creative design directions. Thankfully, I found Salman Khan and his creativity that goes above and beyond, proving to be exactly what I needed to take.</div>
+  <div style="width: 351px; left: 1052px; top: 3008px; position: absolute; text-align: center; color: #030303; font-size: 20px; font-family: Work Sans; font-weight: 700; line-height: 25px; word-wrap: break-word">Aika Chan</div>
+  <div style="width: 86px; height: 86px; left: 81px; top: 2910px; position: absolute; overflow: hidden">
+    <div style="width: 25.08px; height: 43px; left: 28.67px; top: 21.50px; position: absolute; background: black"></div>
+  </div>
+  <div style="width: 86px; height: 86px; left: 1574px; top: 2910px; position: absolute; overflow: hidden">
+    <div style="width: 25.08px; height: 43px; left: 32.25px; top: 21.50px; position: absolute; background: black"></div>
+  </div>
+  <div style="left: 128px; top: 3371px; position: absolute; color: white; font-size: 40px; font-family: Eczar; font-weight: 600; line-height: 50px; letter-spacing: 0.80px; word-wrap: break-word">A Little Bit About Me</div>
+  <div style="width: 732px; left: 128px; top: 3463px; position: absolute; color: white; font-size: 20px; font-family: Work Sans; font-weight: 400; line-height: 30px; word-wrap: break-word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ipsum, scelerisque proin consequat tristique tortor, amet nullam. Eu purus blandit luctus faucibus justo venenatis a. Auctor vitae sed arcu curabitur tincidunt nibh. Lacinia ornare magnis amet blandit nisl urna tincidunt eget. Urna sed etiam auctor ut netus sed sed. Gravida habitant eu gravida id neque, facilisis. <br/><br/>Neque lectus elit massa aenean turpis quam aliquet.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ipsum, scelerisque proin consequat tristique tortor, amet nullam. Eu purus blandit luctus faucibus justo venenatis a. </div>
+  <div style="width: 224px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; left: 124px; top: 3835px; position: absolute; border-radius: 5px; outline: 4px white solid; outline-offset: -4px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+    <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+      <div style="color: white; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Contact Me</div>
+    </div>
+  </div>
+  <img style="width: 856px; height: 731px; left: 872px; top: 3267px; position: absolute; background: #C4C4C4" src="https://placehold.co/856x731" />
+  <div style="width: 1728px; height: 187px; left: 0px; top: 5011px; position: absolute; background: black"></div>
+  <div style="width: 784px; left: 472px; top: 5083px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Work Sans; font-weight: 500; line-height: 30px; word-wrap: break-word">© Copyright ChiranjitH.com</div>
+  <div style="width: 732px; left: 498px; top: 4165px; position: absolute; color: black; font-size: 64px; font-family: Eczar; font-weight: 600; line-height: 80px; letter-spacing: 1.28px; word-wrap: break-word">Let’s work together</div>
+  <div style="width: 360px; height: 87px; left: 494px; top: 4288px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
+  <div style="width: 265px; height: 87px; left: 494px; top: 4409px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
+  <div style="width: 736px; height: 211px; left: 494px; top: 4530px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
+  <div style="width: 455px; height: 87px; left: 775px; top: 4409px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
+  <div style="width: 360px; height: 87px; left: 870px; top: 4288px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
+  <div style="width: 224px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; left: 498px; top: 4784px; position: absolute; border-radius: 5px; outline: 4px black solid; outline-offset: -4px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+    <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+      <div style="color: black; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Send Message</div>
+    </div>
+  </div>
+  <div style="left: 527px; top: 4317px; position: absolute; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+    <div style="color: black; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">First name</div>
+  </div>
+  <div style="left: 527px; top: 4438px; position: absolute; color: black; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Subject</div>
+  <div style="left: 809px; top: 4438px; position: absolute; color: black; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Email</div>
+  <div style="left: 527px; top: 4551px; position: absolute; color: black; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Your message</div>
+  <div style="left: 899px; top: 4317px; position: absolute; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+    <div style="color: black; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Last name</div>
   </div>
 </div>
+            <!-- 👆 PASTE YOUR FIGMA CODE DIRECTLY ABOVE THIS LINE 👆 -->
 
-        <!-- 👆 PASTE YOUR FIGMA CODE DIRECTLY ABOVE THIS LINE 👆 -->
-
+        </div>
     </div>
 
 </body>

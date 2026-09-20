@@ -117,24 +117,49 @@ body {
   box-shadow: 0px 0px 0px #03045E;
 }
 
+/* --- HERO IMAGE STYLING --- */
 .hero-right {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
+/* This creates the thin outer circular ring seen in Figma */
 .image-wrapper {
   position: relative;
-  width: 493px;
-  height: 532px;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 1.5px solid #03045E; /* The dark blue accent ring */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px; /* Spacing between outer ring and your photo */
 }
 
+/* This forces your photo to crop into a perfect circle inside the ring */
 .image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 1px solid #03045E;
+  border-radius: 50%; /* Makes the cat photo circular */
 }
+
+/* Optional: Add the slashes (////) to the bottom left if you want them */
+.image-wrapper::before {
+  content: "////";
+  position: absolute;
+  bottom: 40px;
+  left: -30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  color: #03045E;
+  letter-spacing: 2px;
+  font-weight: 500;
+  transform: rotate(-15deg);
+}
+
 
 /* -------------------------------------------
    4. COMMON SECTION STRUCTURES (ABOUT, WORK, CONTACT)

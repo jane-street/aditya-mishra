@@ -3,252 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Mishra | Portfolio</title>
+    <title>Aditya Mishra | Compiler Engineer & Frontend Developer</title>
     
-    <!-- Loads custom Google fonts -->
+    <!-- Modern & Technical Fonts -->
     <link href="https://googleapis.com" rel="stylesheet">
     
     <style>
-        html, body {
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #151D30;
+            --accent-cyan: #00F0FF;
+            --accent-purple: #9D4EDD;
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
-            width: 100%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
         }
-        .outer-wrapper {
+
+        /* Clean Layout Framework */
+        .container {
             width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: 'Fira Code', monospace;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem 0;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            background-color: #ffffff;
+            position: relative;
         }
-        .canvas-container {
-            width: 1728px;
-            flex-shrink: 0;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,240,255,0.15) 0%, transparent 70%);
+            z-index: -1;
         }
-        @media (max-width: 1728px) {
-            .canvas-container {
-                zoom: calc(100vw / 1728);
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 240, 255, 0.06);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            color: var(--accent-cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            width: max-content;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .location-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Unified Social Icons styling */
+        .social-row {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+            background: rgba(0, 240, 255, 0.03);
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Common Section Structures */
+        section {
+            padding: 6rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title span {
+            color: var(--accent-cyan);
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Specific section grids */
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .split-grid {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+            .hero h1 {
+                font-size: 4.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="outer-wrapper">
-        <div class="canvas-container">
-            
-            <!-- STITCHED FIGMA CODE STRUCTURE -->
-            <div style="width: 1728px; height: 5198px; position: relative; background: white; overflow: hidden">
-              
-              <!-- Navigation Links -->
-              <div style="left: 371px; top: 32px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 32px; display: inline-flex">
-                <div style="color: #1B1A19; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Home</div>
-                <div style="color: #1B1A19; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Work</div>
-                <div style="color: #1B1A19; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Testimonials</div>
-                <div style="color: #1B1A19; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">About</div>
-              </div>
-              
-              <!-- Logo Title -->
-              <div style="width: 235px; left: 120px; top: 26px; position: absolute; justify-content: center; display: flex; flex-direction: column; color: #1B1A19; font-size: 28px; font-family: 'Work Sans', sans-serif; font-weight: 800; text-transform: uppercase; line-height: 42px; word-wrap: break-word">UIUX Designer</div>
-              
-              <!-- Header Icons / Decorative boxes -->
-              <div style="left: 1408px; top: 32px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 9.92px; height: 7.73px; background: #4D5566"></div>
-                <div style="width: 12.19px; height: 9px; background: #4D5566"></div>
-                <div style="width: 9.81px; height: 6.59px; background: #4D5566"></div>
-                <div style="width: 11.57px; height: 9.15px; background: #4D5566"></div>
-                <div style="width: 7.60px; height: 8.30px; background: #4D5566"></div>
-                <div style="width: 9.73px; height: 7.63px; background: #4D5566"></div>
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 7.52px; height: 7.52px; background: #4D5566"></div>
-                <div style="width: 26.67px; height: 26.67px; background: #4D5566"></div>
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 26.67px; height: 26.67px; background: #4D5566"></div>
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 26.67px; height: 26.67px; background: #4D5566"></div>
-              </div>
-              
-              <div style="width: 1728.07px; height: 0px; left: 0px; top: 96px; position: absolute; outline: 1px rgba(0, 0, 0, 0.16) solid; outline-offset: -0.50px"></div>
-              
-              <!-- Hero Content Intro -->
-              <div style="width: 742px; height: 424px; left: 122px; top: 186px; position: absolute">
-                <div style="width: 742px; left: 0px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
-                  <div style="padding-left: 24px; padding-right: 24px; padding-top: 12px; padding-bottom: 12px; background: #090909; border-radius: 10px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                    <div style="color: white; font-size: 24px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 36px; word-wrap: break-word">👋 Hello All</div>
-                  </div>
-                  <div style="color: #151413; font-size: 64px; font-family: 'Eczar', serif; font-weight: 600; line-height: 80px; letter-spacing: 1.28px; word-wrap: break-word">I’m Aditya Mishra,<br/>A UI/UX Designer<br/>and Developer</div>
-                </div>
-                <div style="left: 0px; top: 364px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                  <div style="width: 224px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; background: black; border-radius: 5px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                    <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-                      <div style="color: #F3F2FF; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">View My Work</div>
-                      <div style="width: 24px; height: 24px; position: relative"></div>
-                    </div>
-                  </div>
-                  <div style="width: 224px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; border-radius: 5px; outline: 4px black solid; outline-offset: -4px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                    <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-                      <div style="color: #4D5566; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Contact Me</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Main Hero Image -->
-              <img style="width: 733px; height: 541px; left: 875px; top: 141px; position: absolute; background: #C4C4C4; border-radius: 30px" src="https://placehold.co" />
-              <!-- Background Dividers -->
-              <div style="width: 1728px; height: 1699px; left: 0px; top: 806px; position: absolute; background: rgba(0, 0, 0, 0.93)"></div>
-              <div style="width: 1728px; height: 731px; left: 0px; top: 3267px; position: absolute; background: black"></div>
-              
-              <!-- Featured Work Header Title -->
-              <div style="padding: 8px; left: 122px; top: 868px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
-                <div style="color: #FFFEFC; font-size: 40px; font-family: 'Eczar', serif; font-weight: 600; line-height: 50px; letter-spacing: 0.80px; word-wrap: break-word">Featured Work</div>
-              </div>
-              
-              <!-- Project 1: Sheepify States -->
-              <div style="width: 1485px; height: 414px; left: 120px; top: 991px; position: absolute; background: white; border-radius: 30px"></div>
-              <div style="width: 607px; height: 318px; left: 234px; top: 1039px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
-                <div style="width: 623px; height: 258px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: flex">
-                  <div style="color: black; font-size: 32px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 48px; word-wrap: break-word">Sheepify States</div>
-                  <div style="width: 623px; height: 248px; color: #594F43; font-size: 24px; font-family: 'Work Sans', sans-serif; font-weight: 500; line-height: 36px; word-wrap: break-word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa amet etiam quis semper sit lacus blandit. Diam nam mi tortor feugiat nunc. Amet enim nisi ac imperdiet nisl, feugiat faucibus amet mi. Volutpat sollicitudin euismod facilisis morbi ullamcorper velit, elementum.</div>
-                </div>
-                <div style="color: black; font-size: 24px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 36px; word-wrap: break-word">Live View</div>
-              </div>
-              <img style="width: 624px; height: 414px; left: 981px; top: 991px; position: absolute; background: #C4C4C4; border-top-right-radius: 30px; border-bottom-right-radius: 30px" src="https://placehold.co" />
-              
-              <!-- Project 2: Interior Design -->
-              <div style="width: 1485px; height: 414px; left: 120px; top: 1462px; position: absolute; background: white; border-radius: 30px"></div>
-              <div style="width: 607px; height: 251px; left: 234px; top: 1543px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
-                <div style="width: 623px; height: 186px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: flex">
-                  <div style="color: black; font-size: 32px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 48px; word-wrap: break-word">Interior Design</div>
-                  <div style="width: 623px; height: 248px; color: #594F43; font-size: 24px; font-family: 'Work Sans', sans-serif; font-weight: 500; line-height: 36px; word-wrap: break-word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa amet etiam quis semper sit lacus blandit. Diam nam mi tortor feugiat nunc. Amet enim nisi ac imperdiet nisl.</div>
-                </div>
-                <div style="color: black; font-size: 24px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 36px; word-wrap: break-word">Live View</div>
-              </div>
-              <img style="width: 624px; height: 414px; left: 981px; top: 1462px; position: absolute; background: #C4C4C4; border-top-right-radius: 30px; border-bottom-right-radius: 30px" src="https://placehold.co" />
-
-                      <!-- Project 3: iOS UI/UX Design -->
-              <div style="width: 1485px; height: 414px; left: 114px; top: 1933px; position: absolute; background: white; border-radius: 30px"></div>
-              <div style="width: 607px; height: 210px; left: 234px; top: 2035px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
-                <div style="width: 623px; height: 150px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: flex">
-                  <div style="color: black; font-size: 32px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 48px; word-wrap: break-word">IOS UI/UX Design</div>
-                  <div style="width: 623px; height: 248px; color: #594F43; font-size: 24px; font-family: 'Work Sans', sans-serif; font-weight: 500; line-height: 36px; word-wrap: break-word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa amet etiam quis semper sit lacus blandit. Diam nam mi torto</div>
-                </div>
-                <div style="color: black; font-size: 24px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 36px; word-wrap: break-word">Live View</div>
-              </div>
-              <img style="width: 624px; height: 414px; left: 975px; top: 1933px; position: absolute; background: #C4C4C4; border-top-right-radius: 30px; border-bottom-right-radius: 30px" src="https://placehold.co" />
-              
-              <!-- View More Button -->
-              <div style="width: 302px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; left: 482px; top: 871px; position: absolute; border-radius: 5px; outline: 4px white solid; outline-offset: -4px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-                  <div style="color: white; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">View more on Behance </div>
-                </div>
-              </div>
-              
-              <!-- Testimonials Header -->
-              <div style="left: 449px; top: 2623px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-                <div style="color: #020202; font-size: 40px; font-family: 'Eczar', serif; font-weight: 600; line-height: 50px; letter-spacing: 0.80px; word-wrap: break-word">Some Generous Words</div>
-                <div style="width: 784px; text-align: center; color: #594F43; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 500; line-height: 30px; word-wrap: break-word">Some of my favorite testimonials from my clients</div>
-              </div>
-              
-              <!-- Testimonial Card 1 -->
-              <div style="width: 662px; height: 369px; left: 167px; top: 2777px; position: absolute; border-radius: 30px"></div>
-              <div style="left: 396px; top: 3050px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 9.92px; height: 7.73px; background: black"></div>
-                <div style="width: 12.19px; height: 9px; background: black"></div>
-                <div style="width: 9.81px; height: 6.59px; background: black"></div>
-                <div style="width: 11.57px; height: 9.15px; background: black"></div>
-                <div style="width: 7.60px; height: 8.30px; background: black"></div>
-                <div style="width: 9.73px; height: 7.63px; background: black"></div>
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 7.52px; height: 7.52px; background: black"></div>
-                <div style="width: 26.67px; height: 26.67px; background: black"></div>
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 26.67px; height: 26.67px; background: black"></div>
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 26.67px; height: 26.67px; background: black"></div>
-              </div>
-              <div style="width: 539px; left: 229px; top: 2841px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 400; line-height: 30px; word-wrap: break-word">I had grown a little bit disappointed when I realized that my work would not be taking me in any new, creative design directions. Thankfully, I found Salman Khan and his creativity that goes above and beyond, proving to be exactly what I needed to take.</div>
-              <div style="width: 351px; left: 321px; top: 3008px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 700; line-height: 25px; word-wrap: break-word">Aika Chan</div>
-              
-              <!-- Testimonial Card 2 -->
-              <div style="width: 662px; height: 369px; left: 898px; top: 2777px; position: absolute; border-radius: 30px"></div>
-              <div style="left: 1127px; top: 3050px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
-                <div style="width: 32px; height: 32px"></div> 
-
-                                <div style="width: 9.92px; height: 7.73px; background: black"></div>
-                <div style="width: 12.19px; height: 9px; background: black"></div>
-                <div style="width: 9.81px; height: 6.59px; background: black"></div>
-                <div style="width: 11.57px; height: 9.15px; background: black"></div>
-                <div style="width: 7.60px; height: 8.30px; background: black"></div>
-                <div style="width: 9.73px; height: 7.63px; background: black"></div>
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 7.52px; height: 7.52px; background: black"></div>
-                <div style="width: 26.67px; height: 26.67px; background: black"></div>
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 26.67px; height: 26.67px; background: black"></div>
-                <div style="width: 32px; height: 32px"></div>
-                <div style="width: 26.67px; height: 26.67px; background: black"></div>
-              </div>
-              <div style="width: 539px; left: 960px; top: 2841px; position: absolute; text-align: center; color: #030303; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 400; line-height: 30px; word-wrap: break-word">I had grown a little bit disappointed when I realized that my work would not be taking me in any new, creative design directions. Thankfully, I found Salman Khan and his creativity that goes above and beyond, proving to be exactly what I needed to take.</div>
-              <div style="width: 351px; left: 1052px; top: 3008px; position: absolute; text-align: center; color: #030303; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 700; line-height: 25px; word-wrap: break-word">Aika Chan</div>
-              
-              <!-- Testimonial Navigation Arrows -->
-              <div style="width: 86px; height: 86px; left: 81px; top: 2910px; position: absolute; overflow: hidden">
-                <div style="width: 25.08px; height: 43px; left: 28.67px; top: 21.50px; position: absolute; background: black"></div>
-              </div>
-              <div style="width: 86px; height: 86px; left: 1574px; top: 2910px; position: absolute; overflow: hidden">
-                <div style="width: 25.08px; height: 43px; left: 32.25px; top: 21.50px; position: absolute; background: black"></div>
-              </div>
-              
-              <!-- About Me Section -->
-              <div style="left: 128px; top: 3371px; position: absolute; color: white; font-size: 40px; font-family: 'Eczar', serif; font-weight: 600; line-height: 50px; letter-spacing: 0.80px; word-wrap: break-word">A Little Bit About Me</div>
-              <div style="width: 732px; left: 128px; top: 3463px; position: absolute; color: white; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 400; line-height: 30px; word-wrap: break-word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ipsum, scelerisque proin consequat tristique tortor, amet nullam. Eu purus blandit luctus faucibus justo venenatis a. Auctor vitae sed arcu curabitur tincidunt nibh. Lacinia ornare magnis amet blandit nisl urna tincidunt eget. Urna sed etiam auctor ut netus sed sed. Gravida habitant eu gravida id neque, facilisis. <br/><br/>Neque lectus elit massa aenean turpis quam aliquet.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ipsum, scelerisque proin consequat tristique tortor, amet nullam. Eu purus blandit luctus faucibus justo venenatis a. </div>
-              <div style="width: 224px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; left: 124px; top: 3835px; position: absolute; border-radius: 5px; outline: 4px white solid; outline-offset: -4px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-                  <div style="color: white; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Contact Me</div>
-                </div>
-              </div>
-              <img style="width: 856px; height: 731px; left: 872px; top: 3267px; position: absolute; background: #C4C4C4" src="https://placehold.co" />
-              
-              <!-- Contact Form Section -->
-              <div style="width: 732px; left: 498px; top: 4165px; position: absolute; color: black; font-size: 64px; font-family: 'Eczar', serif; font-weight: 600; line-height: 80px; letter-spacing: 1.28px; word-wrap: break-word">Let’s work together</div>
-              
-              <!-- Form Background Input Boxes -->
-              <div style="width: 360px; height: 87px; left: 494px; top: 4288px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
-              <div style="width: 265px; height: 87px; left: 494px; top: 4409px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
-              <div style="width: 736px; height: 211px; left: 494px; top: 4530px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
-              <div style="width: 455px; height: 87px; left: 775px; top: 4409px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
-              <div style="width: 360px; height: 87px; left: 870px; top: 4288px; position: absolute; background: rgba(196, 196, 196, 0.30); border-radius: 30px"></div>
-              
-              <!-- Submit Button Wrapper -->
-              <div style="width: 224px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; left: 498px; top: 4784px; position: absolute; border-radius: 5px; outline: 4px black solid; outline-offset: -4px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                <div style="justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-                  <div style="color: black; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Send Message</div>
-                </div>
-              </div>
-              
-              <!-- Form Field Placeholders labels -->
-              <div style="left: 527px; top: 4317px; position: absolute; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-                <div style="color: black; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">First name</div>
-              </div>
-              <div style="left: 527px; top: 4438px; position: absolute; color: black; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Subject</div>
-              <div style="left: 809px; top: 4438px; position: absolute; color: black; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Email</div>
-              <div style="left: 527px; top: 4551px; position: absolute; color: black; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Your message</div>
-              <div style="left: 899px; top: 4317px; position: absolute; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-                <div style="color: black; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; line-height: 30px; word-wrap: break-word">Last name</div>
-              </div>
-              
-              <!-- Footer Copyright Layout -->
-              <div style="width: 1728px; height: 187px; left: 0px; top: 5011px; position: absolute; background: black"></div>
-              <div style="width: 784px; left: 472px; top: 5083px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: 'Work Sans', sans-serif; font-weight: 500; line-height: 30px; word-wrap: break-word">© Copyright mishraaditya.com</div>
-              
-            </div> <!-- Clips inner design layout -->
-            
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">&lt;AM<span>/</span>&gt;</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </div>
+    </header>
+
+    <!-- Main Content Context Wrapper -->
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">🚀 Core Contributor @llvm</div>
+            <h1>I’m <span>Aditya Mishra</span></h1>
+            <p class="hero-subtitle">Compiler Infrastructure Engineer & Frontend Developer. Building optimized backend toolchains and high-performance user interfaces.</p>
+            
+            <div class="location-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                New Delhi, India
+            </div>
+
+            <!-- Hyperlinked Active Social Logo Bar -->
+            <div class="social-row">
+                <a href="https://github.com/jane-street" target="_blank" class="social-icon" title="GitHub">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/jane-street/" target="_blank" class="social-icon" title="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://x.com" target="_blank" class="social-icon" title="Twitter / X">
+                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://discord.com" target="_blank" class="social-icon" title="Discord: _janestreet">
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title"><span>01.</span> About Me</h2>
+            <div class="split-grid">
+                <div>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                        🎓 <strong>Pre-final Year CS Student @ MDU | Aspiring Software Engineer</strong>
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        I focus on low-level systems programming and compiler infrastructure, while maintaining engineering capabilities in modern user interfaces.
+                    </p>
+                    <p style="color: var(--text-muted);">
+                        As an active contributor within open-source systems, I enjoy bridging the gap between highly optimized architectural backends and smooth, predictable developer experiences on the client interface.
+                    </p>
+                </div>
+                
+                <!-- Tech Stack Section -->
+                <div style="background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.04);">
+                    <h3 style="font-size: 1.1rem; font-family: 'Fira Code', monospace; color: var(--accent-cyan); margin-bottom: 1.5rem;">⚡ Tech Stack</h3>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; color: var(--text-main);">Systems & Compilers</h4>
+                        <p style="font-family: 'Fira Code', monospace; font-size: 0.9rem; color: var(--text-muted);">Modern C++ (C++17/20) • LLVM IR • Compiler Architecture • CMake & Ninja • Git Monorepo</p>
+                    </div>
+                    
+                    <div>
+                        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; color: var(--text-main);">Frontend Engineering</h4>
+                        <p style="font-family: 'Fira Code', monospace; font-size: 0.9rem; color: var(--text-muted);">React • JavaScript/TypeScript • Responsive UI/UX • Figma Frameworks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Extra styles for upcoming cards alignment */
+            .exp-card, .project-card {
+                background: var(--bg-card);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 12px;
+                padding: 2.5rem;
+                margin-bottom: 2rem;
+                transition: transform 0.2s ease, border-color 0.2s ease;
+            }
+            .exp-card:hover, .project-card:hover {
+                transform: translateY(-4px);
+                border-color: rgba(0, 240, 255, 0.2);
+            }
+            .card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 1rem;
+            }
+            .timeline {
+                font-family: 'Fira Code', monospace;
+                font-size: 0.85rem;
+                color: var(--accent-purple);
+            }
+            .project-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            @media(min-width: 768px) {
+                .project-grid { grid-template-columns: 1fr 1fr; }
+            }
+        </style>
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title"><span>02.</span> Experience</h2>
+            
+            <div class="exp-card">
+                <div class="card-header">
+                    <div>
+                        <h3 style="font-size: 1.35rem; color: var(--text-main); margin-bottom: 0.25rem;">Compiler Engineer (Open Source Contributor)</h3>
+                        <h4 style="font-size: 1rem; color: var(--accent-cyan); font-weight: 500;">LLVM Foundation</h4>
+                    </div>
+                    <div class="timeline">Aug 2026 - Present · 2 mos</div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    Actively contributing to core infrastructure within the LLVM project monorepo. Focused on constructing optimization passes, parsing workflows, analyzing LLVM Intermediate Representation (IR), and operating within specialized architecture systems.
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title"><span>03.</span> Featured Projects</h2>
+            
+            <div class="project-grid">
+                <!-- Project 1: Fintech Platform -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3 style="font-size: 1.25rem; color: var(--text-main);">Fintech Platform</h3>
+                        <a href="https://github.com" target="_blank" style="color: var(--text-muted); transition: color 0.2s;" onmouseover="this.style.color='#00F0FF'" onmouseout="this.style.color='#9CA3AF'" title="View Repository">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        High-performance responsive frontend architecture engineered for handling data-intensive visual banking states, custom interactive balances, and high-fidelity DOM user operations.
+                    </p>
+                    <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--accent-cyan);">React • TypeScript • TailWind CSS</div>
+                </div>
+
+                <!-- Project 2: Trading Dashboard -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3 style="font-size: 1.25rem; color: var(--text-main);">Trading Dashboard</h3>
+                        <a href="https://github.com" target="_blank" style="color: var(--text-muted); transition: color 0.2s;" onmouseover="this.style.color='#00F0FF'" onmouseout="this.style.color='#9CA3AF'" title="View Repository">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        Real-time quantitative visual monitoring console optimized to map asset charts, metric data metrics, and high-frequency rendering pipelines efficiently.
+                    </p>
+                    <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--accent-cyan);">React • JavaScript • WebSockets • CSS Grid</div>
+                </div>
+            </div>
+        </section>
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title"><span>04.</span> Education</h2>
+            
+            <div style="background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 2.5rem;">
+                <div class="card-header">
+                    <div>
+                        <h3 style="font-size: 1.35rem; color: var(--text-main); margin-bottom: 0.25rem;">Bachelor of Science (Honours) in Computer Science</h3>
+                        <h4 style="font-size: 1rem; color: var(--accent-cyan); font-weight: 500;">Maharishi Dayanand University (MDU)</h4>
+                    </div>
+                    <div class="timeline">Aug 2024 - June 2028</div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    Rohtak, Haryana. Focusing heavily on algorithms, computational systems infrastructure, software engineering methodologies, and low-level engineering paradigms.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="padding-bottom: 8rem;">
+            <h2 class="section-title"><span>05.</span> Get In Touch</h2>
+            
+            <div style="max-width: 600px; margin: 0 auto; background: var(--bg-card); padding: 3rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.04);">
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Let’s Work Together</h3>
+                <p style="color: var(--text-muted); text-align: center; margin-bottom: 2.5rem; font-size: 0.95rem;">
+                    Got a question about a repository compiler contribution or a frontend interface development requirement? Drop a message directly.
+                </p>
+                
+                <form action="mailto:aditya@mishraaditya.com" method="post" enctype="text/plain" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <input type="text" name="First Name" placeholder="First Name" required style="width: 100%; padding: 0.85rem 1rem; background: rgba(11, 15, 25, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: var(--text-main); font-family: inherit; font-size: 0.95rem;">
+                        <input type="text" name="Last Name" placeholder="Last Name" required style="width: 100%; padding: 0.85rem 1rem; background: rgba(11, 15, 25, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: var(--text-main); font-family: inherit; font-size: 0.95rem;">
+                    </div>
+                    <input type="email" name="Email" placeholder="Email Address" required style="width: 100%; padding: 0.85rem 1rem; background: rgba(11, 15, 25, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: var(--text-main); font-family: inherit; font-size: 0.95rem;">
+                    <input type="text" name="Subject" placeholder="Subject" required style="width: 100%; padding: 0.85rem 1rem; background: rgba(11, 15, 25, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: var(--text-main); font-family: inherit; font-size: 0.95rem;">
+                    <textarea name="Message" placeholder="Your message..." rows="5" required style="width: 100%; padding: 0.85rem 1rem; background: rgba(11, 15, 25, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: var(--text-main); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+                    
+                    <button type="submit" style="margin-top: 0.5rem; width: 100%; padding: 1rem; background: transparent; border: 2px solid var(--accent-cyan); color: var(--accent-cyan); border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(0, 240, 255, 0.05)'" onmouseout="this.style.background='transparent'">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </div> <!-- Closes Main Content .container -->
+
+    <!-- Footer Copyright Layout -->
+    <footer style="padding: 2rem 0; border-top: 1px solid rgba(255, 255, 255, 0.04); text-align: center; background: #070A11;">
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 mishraaditya.com. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>

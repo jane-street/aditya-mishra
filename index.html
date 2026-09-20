@@ -11,66 +11,34 @@
             padding: 0;
             background-color: #101010;
             width: 100%;
-            overflow-x: hidden; /* Prevents ugly horizontal scrolling */
+            overflow-x: hidden; /* Stops horizontal scrolling and clips the slanted banner */
         }
 
-        /* This wrapper automatically shrinks the 1440px Figma layout to fit smaller screens */
-        .page-scaler {
+        .outer-wrapper {
+            width: 100%;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-            min-height: 100vh;
         }
 
         .canvas-container {
-            position: relative;
-            width: 1440px; 
-            height: 984px;
+            width: 1440px; /* Matches your Figma frame width */
             flex-shrink: 0;
-            transform-origin: top center;
         }
 
-        /* Screen sizing magic rules */
+        /* This automatically scales down your entire layout to fit laptop screens perfectly */
         @media (max-width: 1440px) {
             .canvas-container {
-                transform: scale(calc(window.innerWidth / 1440));
-            }
-        }
-        
-        @container (max-width: 1440px) {
-            .canvas-container {
-                transform: scale(0.9); /* Safe fallback scale for small laptops */
+                zoom: calc(100vw / 1440);
             }
         }
     </style>
-    
-    <script>
-        // Dynamically adjusts the zoom scale to fit your exact screen width live
-        function adjustScale() {
-            const container = document.querySelector('.canvas-container');
-            if (!container) return;
-            const width = window.innerWidth;
-            if (width < 1440) {
-                const scaleValue = width / 1440;
-                container.style.transform = `scale(${scaleValue})`;
-                container.style.marginBottom = `-${100 - (scaleValue * 100)}%`;
-            } else {
-                container.style.transform = 'none';
-                container.style.marginBottom = '0';
-            }
-        }
-        window.addEventListener('resize', adjustScale);
-        window.addEventListener('DOMContentLoaded', adjustScale);
-    </script>
 </head>
 <body>
 
-    <div class="page-scaler">
+    <div class="outer-wrapper">
         <div class="canvas-container">
         
-            <!-- 👇 PASTE YOUR FIGMA CODE DIRECTLY UNDER THIS LINE 👇 -->
-
+            <!-- 👇 PASTE YOUR LONG FIGMA CODE DIRECTLY UNDER THIS LINE 👇 -->
 <div style="width: 1728px; height: 5198px; position: relative; background: white; overflow: hidden">
   <div style="left: 371px; top: 32px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 32px; display: inline-flex">
     <div style="color: #1B1A19; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Home</div>
@@ -101,7 +69,7 @@
       <div style="padding-left: 24px; padding-right: 24px; padding-top: 12px; padding-bottom: 12px; background: #090909; border-radius: 10px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
         <div style="color: white; font-size: 24px; font-family: Work Sans; font-weight: 600; line-height: 36px; word-wrap: break-word">👋 Hello All</div>
       </div>
-      <div style="color: #151413; font-size: 64px; font-family: Eczar; font-weight: 600; line-height: 80px; letter-spacing: 1.28px; word-wrap: break-word">I’m Chiranjit H,<br/>A UI/UX Designer<br/>and Developer</div>
+      <div style="color: #151413; font-size: 64px; font-family: Eczar; font-weight: 600; line-height: 80px; letter-spacing: 1.28px; word-wrap: break-word">I’m Aditya Mishra,<br/>A UI/UX Designer<br/>and Developer</div>
     </div>
     <div style="left: 0px; top: 364px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
       <div style="width: 224px; height: 60px; padding-left: 40px; padding-right: 40px; padding-top: 24px; padding-bottom: 24px; background: black; border-radius: 5px; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
@@ -234,7 +202,8 @@
     <div style="color: black; font-size: 20px; font-family: Work Sans; font-weight: 600; line-height: 30px; word-wrap: break-word">Last name</div>
   </div>
 </div>
-            <!-- 👆 PASTE YOUR FIGMA CODE DIRECTLY ABOVE THIS LINE 👆 -->
+
+            <!-- 👆 PASTE YOUR LONG FIGMA CODE DIRECTLY ABOVE THIS LINE 👆 -->
 
         </div>
     </div>
